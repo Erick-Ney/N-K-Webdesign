@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Dark-first FOUC prevention -->
+  <script>if(localStorage.theme==='light'||(localStorage.theme!=='dark'&&matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light-mode')</script>
+  <title>N&K Webdesign Munich | Professional Web Design & Development</title>
+  <meta name="description" content="N&K Webdesign builds fast, modern, results-driven websites for Munich businesses. Web design, development, SEO and brand identity — from scratch or rebuilt.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nk-webdesign.de/">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://nk-webdesign.de/">
+  <meta property="og:title"       content="N&K Webdesign Munich | Professional Web Design">
+  <meta property="og:description" content="Fast, modern websites for ambitious Munich businesses. Web design, development and SEO.">
+  <meta property="og:image"       content="https://nk-webdesign.de/og-image.jpg">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#7C3AED" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#6D28D9" media="(prefers-color-scheme: light)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./animations.css">
+  <link rel="stylesheet" href="./components.css">
+  <style>
+    /* Page-specific: hero gradient card fills */
+    .m-hero--green  { background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%); }
+    .m-hero--amber  { background: linear-gradient(135deg, #78350f 0%, #92400e 50%, #b45309 100%); }
+    .m-hero--violet { background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 50%, #6d28d9 100%); }
+
+    /* Project card gradients */
+    .proj-bg--1 { background: linear-gradient(145deg, #052e16 0%, #064e3b 60%, #065f46 100%); }
+    .proj-bg--2 { background: linear-gradient(145deg, #451a03 0%, #78350f 60%, #92400e 100%); }
+    .proj-bg--3 { background: linear-gradient(145deg, #0c4a6e 0%, #075985 60%, #0369a1 100%); }
+    .proj-bg--4 { background: linear-gradient(145deg, #431407 0%, #7c2d12 60%, #9a3412 100%); }
+
+    .proj-bg--1 .project-card__deco,
+    .proj-bg--2 .project-card__deco,
+    .proj-bg--3 .project-card__deco,
+    .proj-bg--4 .project-card__deco {
+      position: absolute;
+      top: 50%;
+      right: var(--sp-6);
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 800;
+      font-style: italic;
+      opacity: 0.08;
+      color: #fff;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "N&K Webdesign",
+    "legalName": "Ney & Kappes Innovations GbR",
+    "description": "Professional web design and development agency based in Munich, Germany. Specialising in modern websites for businesses without an online presence or with outdated sites.",
+    "url": "https://nk-webdesign.de",
+    "email": "hello@nk-webdesign.de",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Munich",
+      "addressRegion": "Bavaria",
+      "postalCode": "80000",
+      "addressCountry": "DE"
+    },
+    "areaServed": "Germany",
+    "serviceType": ["Web Design", "Web Development", "SEO Optimization", "Brand Identity", "Website Maintenance"],
+    "priceRange": "€€",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does a website project take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most projects take between 2 and 6 weeks from briefing to launch. A simple 4-page website typically takes 2–3 weeks; larger projects with custom features take 4–6 weeks. We'll give you an exact timeline before we start." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a website cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our projects start from €1,500 for a clean, professional 4-page website. More complex sites with custom functionality start from €3,500. We provide a fixed-price quote before work begins — no hidden costs." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I edit the website myself after delivery?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can integrate a simple CMS so you can update text, images and blog posts without any technical knowledge. Alternatively, we offer monthly maintenance packages and handle all updates ourselves." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══ COOKIE BANNER ══════════════════════════════ -->
+  <div id="cookie-banner" hidden role="dialog" aria-label="Cookie consent">
+    <p class="cookie-banner__title">We use cookies 🍪</p>
+    <p class="cookie-banner__text">We use essential cookies to make our site work. We'd also like to set analytics cookies to understand how you use our site. See our <a href="./cookies.html">Cookie Policy</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-reject"  class="btn btn-secondary btn--sm">Reject Non-Essential</button>
+      <button id="cookie-manage"  class="btn btn-secondary btn--sm">Manage</button>
+      <button id="cookie-accept"  class="btn btn-primary  btn--sm">Accept All</button>
+    </div>
+  </div>
+
+  <!-- Cookie preference modal -->
+  <div id="cookie-modal" hidden role="dialog" aria-modal="true" aria-label="Cookie preferences" class="cookie-modal">
+    <div id="cookie-modal-overlay" class="cookie-modal__overlay"></div>
+    <div class="cookie-modal__card">
+      <h2 class="cookie-modal__title">Cookie Preferences</h2>
+      <div class="cookie-toggle-row">
+        <div class="cookie-toggle-info">
+          <p class="cookie-toggle-name">Essential</p>
+          <p class="cookie-toggle-desc">Required for the site to function. Cannot be disabled.</p>
+        </div>
+        <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label>
+      </div>
+      <div class="cookie-toggle-row">
+        <div class="cookie-toggle-info">
+          <p class="cookie-toggle-name">Analytics</p>
+          <p class="cookie-toggle-desc">Helps us understand how visitors use the site (Google Analytics 4).</p>
+        </div>
+        <label class="toggle-switch"><input id="toggle-analytics" type="checkbox"><span class="toggle-slider"></span></label>
+      </div>
+      <div class="cookie-toggle-row">
+        <div class="cookie-toggle-info">
+          <p class="cookie-toggle-name">Marketing</p>
+          <p class="cookie-toggle-desc">Used to show relevant advertising on other websites.</p>
+        </div>
+        <label class="toggle-switch"><input id="toggle-marketing" type="checkbox"><span class="toggle-slider"></span></label>
+      </div>
+      <div class="cookie-modal__footer">
+        <button id="cookie-modal-save" class="btn btn-primary" style="width:100%">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER ════════════════════════════════════ -->
+  <header id="site-header" class="site-header">
+    <nav class="nav wrap" role="navigation" aria-label="Main navigation">
+      <a href="./index.html" class="nav__logo" aria-label="N&K Webdesign — home">
+        <svg class="nav__logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="var(--c-brand)"/>
+          <path d="M10 26V10L18 22V10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 10h6v16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 18h5" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav__logo-wordmark">N&K <span class="nav__logo-suffix">Webdesign</span></span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="./index.html"   class="nav__link" aria-current="page">Home</a></li>
+        <li><a href="./about.html"   class="nav__link">About</a></li>
+        <li><a href="./clients.html" class="nav__link">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__theme" id="theme-toggle" aria-label="Switch to light mode">
+          <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="./contact.html" class="btn btn-primary btn--sm nav__cta">Get a Quote</a>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="nav__overlay" id="nav-overlay" hidden role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <ul class="nav__overlay-links" role="list">
+        <li><a href="./index.html"   class="nav__overlay-link" aria-current="page">Home</a></li>
+        <li><a href="./about.html"   class="nav__overlay-link">About</a></li>
+        <li><a href="./clients.html" class="nav__overlay-link">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__overlay-link">Contact</a></li>
+      </ul>
+      <a href="./contact.html" class="btn btn-primary btn--lg">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ HERO ══════════════════════════════════════ -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__glow"  aria-hidden="true"></div>
+      <div class="hero__glow-r" aria-hidden="true"></div>
+      <div class="hero__grid"  aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <div class="hero__content">
+          <p class="label hero-animate">Web Design Studio — Munich</p>
+          <h1 class="hero__title hero-animate">
+            Your business<br>
+            deserves a<br>
+            <span class="hero__accent">better website.</span>
+          </h1>
+          <p class="hero__sub hero-animate">We design and build fast, modern websites for ambitious businesses in Munich — from scratch, or rebuilt from the ground up.</p>
+          <div class="hero__actions hero-animate">
+            <a href="./clients.html" class="btn btn-primary btn--lg">See Our Work</a>
+            <a href="./contact.html" class="btn btn-secondary btn--lg">Get a Free Audit</a>
+          </div>
+          <div class="hero__proof hero-animate">
+            <div class="avatar-stack" aria-label="Some of our satisfied clients">
+              <div class="avatar">PC</div>
+              <div class="avatar">MB</div>
+              <div class="avatar">SK</div>
+              <div class="avatar" style="background:var(--c-brand-soft);color:var(--c-text-brand)">+</div>
+            </div>
+            <span class="hero__proof-text">50+ satisfied clients across Bavaria</span>
+          </div>
+        </div>
+
+        <!-- Browser mockup cards -->
+        <div class="hero__visual hero-animate" aria-hidden="true">
+          <div class="mockup-stack">
+            <!-- Card A: Tree care (green) -->
+            <div class="mockup-card mockup-card--a">
+              <div class="mockup-bar">
+                <span class="mockup-dot mockup-dot--r"></span>
+                <span class="mockup-dot mockup-dot--y"></span>
+                <span class="mockup-dot mockup-dot--g"></span>
+                <div class="mockup-url">baumpflege-conrad.de</div>
+              </div>
+              <div class="mockup-body">
+                <div class="m-nav"></div>
+                <div class="m-hero m-hero--green"></div>
+                <div class="m-grid"><div class="m-grid-item"></div><div class="m-grid-item"></div><div class="m-grid-item"></div></div>
+                <div class="m-line m-line--med"></div>
+                <div class="m-line m-line--short"></div>
+              </div>
+            </div>
+            <!-- Card B: Restaurant (amber) — front center -->
+            <div class="mockup-card mockup-card--b">
+              <div class="mockup-bar">
+                <span class="mockup-dot mockup-dot--r"></span>
+                <span class="mockup-dot mockup-dot--y"></span>
+                <span class="mockup-dot mockup-dot--g"></span>
+                <div class="mockup-url">restaurant-goldener-hirsch.de</div>
+              </div>
+              <div class="mockup-body">
+                <div class="m-nav"></div>
+                <div class="m-hero m-hero--amber"></div>
+                <div class="m-grid"><div class="m-grid-item"></div><div class="m-grid-item"></div><div class="m-grid-item"></div></div>
+                <div class="m-line m-line--med"></div>
+                <div class="m-line m-line--short"></div>
+              </div>
+            </div>
+            <!-- Card C: Fitness (violet) -->
+            <div class="mockup-card mockup-card--c">
+              <div class="mockup-bar">
+                <span class="mockup-dot mockup-dot--r"></span>
+                <span class="mockup-dot mockup-dot--y"></span>
+                <span class="mockup-dot mockup-dot--g"></span>
+                <div class="mockup-url">fitmunich.de</div>
+              </div>
+              <div class="mockup-body">
+                <div class="m-nav"></div>
+                <div class="m-hero m-hero--violet"></div>
+                <div class="m-grid"><div class="m-grid-item"></div><div class="m-grid-item"></div><div class="m-grid-item"></div></div>
+                <div class="m-line m-line--med"></div>
+                <div class="m-line m-line--short"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CLIENTS MARQUEE STRIP ════════════════════ -->
+    <section class="clients-strip bg-dark" aria-label="Clients">
+      <p class="clients-strip__label">Trusted by businesses across Munich</p>
+      <div class="marquee-wrap">
+        <div class="marquee-track" aria-label="Our clients">
+          <span class="client-logo-item">Baumpflege Conrad</span>
+          <span class="client-logo-item">Restaurant Goldener Hirsch</span>
+          <span class="client-logo-item">Praxis Dr. Müller</span>
+          <span class="client-logo-item">FitCity Munich</span>
+          <span class="client-logo-item">Bäckerei Steinberg</span>
+          <span class="client-logo-item">Kanzlei Weber & Partner</span>
+          <span class="client-logo-item">Auto-Service Riedl</span>
+          <span class="client-logo-item">Kosmetik Salon Iris</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="client-logo-item" aria-hidden="true">Baumpflege Conrad</span>
+          <span class="client-logo-item" aria-hidden="true">Restaurant Goldener Hirsch</span>
+          <span class="client-logo-item" aria-hidden="true">Praxis Dr. Müller</span>
+          <span class="client-logo-item" aria-hidden="true">FitCity Munich</span>
+          <span class="client-logo-item" aria-hidden="true">Bäckerei Steinberg</span>
+          <span class="client-logo-item" aria-hidden="true">Kanzlei Weber & Partner</span>
+          <span class="client-logo-item" aria-hidden="true">Auto-Service Riedl</span>
+          <span class="client-logo-item" aria-hidden="true">Kosmetik Salon Iris</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SERVICES ══════════════════════════════════ -->
+    <section class="section bg-default" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section__header">
+          <p class="label reveal">What we do</p>
+          <h2 class="section__title reveal" id="services-title">Everything your<br>website needs.</h2>
+          <p class="section__lead reveal">From first impression to final conversion — we handle the full journey.</p>
+        </div>
+        <div class="services__grid">
+
+          <div class="service-item reveal">
+            <span class="service-item__num">01</span>
+            <div class="service-item__body">
+              <svg class="service-item__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="6" width="32" height="22" rx="3"/><path d="M14 34h12M20 28v6"/><circle cx="20" cy="17" r="5"/><path d="M8 12h4M8 17h2M8 22h4"/></svg>
+              <h3 class="service-item__title">Web Design</h3>
+              <p class="service-item__desc">Custom visual identities built for your industry and audience. Every layout decision is made to communicate trust and drive action — not just look good.</p>
+            </div>
+            <svg class="service-item__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+
+          <div class="service-item reveal">
+            <span class="service-item__num">02</span>
+            <div class="service-item__body">
+              <svg class="service-item__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="8,14 4,20 8,26"/><polyline points="32,14 36,20 32,26"/><line x1="16" y1="8" x2="24" y2="32"/></svg>
+              <h3 class="service-item__title">Web Development</h3>
+              <p class="service-item__desc">Fast, standards-compliant code that loads in under 2 seconds and works flawlessly on every device. No bloated templates — everything built to spec.</p>
+            </div>
+            <svg class="service-item__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+
+          <div class="service-item reveal">
+            <span class="service-item__num">03</span>
+            <div class="service-item__body">
+              <svg class="service-item__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="20" cy="20" r="15"/><path d="M20 5C14 5 8 11 8 20s6 15 12 15"/><path d="M20 5c6 0 12 6 12 15s-6 15-12 15"/><line x1="5" y1="16" x2="35" y2="16"/><line x1="5" y1="24" x2="35" y2="24"/></svg>
+              <h3 class="service-item__title">SEO Optimization</h3>
+              <p class="service-item__desc">Structured data, semantic HTML, Core Web Vitals, and keyword strategy that gets your business found on Google — especially for local Munich searches.</p>
+            </div>
+            <svg class="service-item__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+
+          <div class="service-item reveal">
+            <span class="service-item__num">04</span>
+            <div class="service-item__body">
+              <svg class="service-item__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="20" cy="20" r="8"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4M7.76 7.76l2.83 2.83M29.41 29.41l2.83 2.83M7.76 32.24l2.83-2.83M29.41 10.59l2.83-2.83"/></svg>
+              <h3 class="service-item__title">Brand Identity</h3>
+              <p class="service-item__desc">Logo, color system, typography and visual language that makes your business memorable and consistent across print, web and social media.</p>
+            </div>
+            <svg class="service-item__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+
+          <div class="service-item reveal">
+            <span class="service-item__num">05</span>
+            <div class="service-item__body">
+              <svg class="service-item__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 4L4 12v16l16 8 16-8V12L20 4z"/><path d="M20 4v28M4 12l16 8 16-8"/></svg>
+              <h3 class="service-item__title">Website Maintenance</h3>
+              <p class="service-item__desc">Monthly support packages covering updates, security, backups and performance monitoring — so you can focus on your business, not your website.</p>
+            </div>
+            <svg class="service-item__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STATS ══════════════════════════════════════ -->
+    <section class="section bg-alt" aria-label="Key figures">
+      <div class="wrap">
+        <div class="stats-strip reveal-stagger">
+          <div class="stat">
+            <p class="stat__num"><span data-count="50">50</span><span class="stat__suffix">+</span></p>
+            <p class="stat__label">Clients served</p>
+          </div>
+          <div class="stat">
+            <p class="stat__num"><span data-count="100">100</span><span class="stat__suffix">%</span></p>
+            <p class="stat__label">Client satisfaction</p>
+          </div>
+          <div class="stat">
+            <p class="stat__num"><span data-count="3">3</span></p>
+            <p class="stat__label">Years in Munich</p>
+          </div>
+          <div class="stat">
+            <p class="stat__num">&lt; <span data-count="2">2</span><span class="stat__suffix">s</span></p>
+            <p class="stat__label">Average load time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SELECTED WORK ══════════════════════════════ -->
+    <section class="section bg-default" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section__header" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--sp-6)">
+          <div>
+            <p class="label reveal">Selected work</p>
+            <h2 class="section__title reveal" id="work-title">Results, not<br>just pretty sites.</h2>
+          </div>
+          <a href="./clients.html" class="btn btn-secondary reveal">View all projects</a>
+        </div>
+
+        <div class="projects__filter reveal">
+          <button class="project-filter-btn active" data-filter="all">All</button>
+          <button class="project-filter-btn" data-filter="design">Design</button>
+          <button class="project-filter-btn" data-filter="development">Development</button>
+          <button class="project-filter-btn" data-filter="seo">SEO</button>
+        </div>
+
+        <div class="projects__grid">
+          <!-- Featured -->
+          <article class="project-card project-card--featured reveal" data-category="development">
+            <div class="project-card__bg proj-bg--1">
+              <span class="project-card__deco">Tree</span>
+            </div>
+            <div class="project-card__overlay"></div>
+            <div class="project-card__inner">
+              <p class="project-card__cat">Web Design + Development</p>
+              <h3 class="project-card__title">Baumpflege Conrad GmbH</h3>
+              <div class="project-card__footer">
+                <span class="badge badge--success">+280% online inquiries</span>
+                <a href="./clients.html" class="project-card__arrow" aria-label="View Baumpflege Conrad project">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-card__bg proj-bg--2">
+              <span class="project-card__deco">Gold</span>
+            </div>
+            <div class="project-card__overlay"></div>
+            <div class="project-card__inner">
+              <p class="project-card__cat">Web Design + Brand Identity</p>
+              <h3 class="project-card__title">Restaurant Goldener Hirsch</h3>
+              <div class="project-card__footer">
+                <span class="badge badge--success">First online presence</span>
+                <a href="./clients.html" class="project-card__arrow" aria-label="View Restaurant Goldener Hirsch project">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="seo">
+            <div class="project-card__bg proj-bg--3">
+              <span class="project-card__deco">Med</span>
+            </div>
+            <div class="project-card__overlay"></div>
+            <div class="project-card__inner">
+              <p class="project-card__cat">Redesign + SEO</p>
+              <h3 class="project-card__title">Praxis Dr. Stefan Müller</h3>
+              <div class="project-card__footer">
+                <span class="badge badge--success">+95% web appointments</span>
+                <a href="./clients.html" class="project-card__arrow" aria-label="View Dr. Müller project">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROCESS ════════════════════════════════════ -->
+    <section class="section bg-alt" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="process__grid">
+          <div class="process__sticky reveal-left">
+            <p class="label">How it works</p>
+            <h2 class="section__title" id="process-title">From brief<br>to live site.</h2>
+            <p class="section__lead">A clear, collaborative process with no surprises — and a fixed price agreed before we start.</p>
+          </div>
+          <div class="process-steps">
+            <div class="process-step reveal">
+              <div class="process-step__header">
+                <span class="process-step__num">01</span>
+                <h3 class="process-step__title">Discovery</h3>
+              </div>
+              <p class="process-step__desc">We start with a structured briefing call — understanding your business, your customers, and what success looks like. You'll receive a written brief and fixed quote within 48 hours.</p>
+            </div>
+            <div class="process-step reveal">
+              <div class="process-step__header">
+                <span class="process-step__num">02</span>
+                <h3 class="process-step__title">Design</h3>
+              </div>
+              <p class="process-step__desc">We present a complete visual design for your review before writing a line of code. You'll see exactly what the site will look like — and two rounds of revisions are included.</p>
+            </div>
+            <div class="process-step reveal">
+              <div class="process-step__header">
+                <span class="process-step__num">03</span>
+                <h3 class="process-step__title">Development</h3>
+              </div>
+              <p class="process-step__desc">Clean, fast, accessible code. We build with performance and SEO as core requirements, not afterthoughts. You'll receive a staging link to review the live build before launch.</p>
+            </div>
+            <div class="process-step reveal">
+              <div class="process-step__header">
+                <span class="process-step__num">04</span>
+                <h3 class="process-step__title">Launch &amp; Handover</h3>
+              </div>
+              <p class="process-step__desc">We handle deployment, domain connection and final testing. You receive full documentation, login credentials, and a 30-minute walkthrough of your new site.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ══════════════════════════════ -->
+    <section class="section bg-default" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="wrap">
+        <div class="section__header" style="text-align:center">
+          <p class="label reveal" style="justify-content:center">What clients say</p>
+          <h2 class="section__title reveal" id="testimonials-title">Don't take our word for it.</h2>
+        </div>
+        <div class="testimonials__grid reveal-stagger">
+          <article class="testimonial-card">
+            <p class="testimonial-card__quote">Working with N&K completely transformed how our customers find us. We went from nothing online to receiving 15–20 new enquiries a week through the website.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">PC</div>
+              <div>
+                <p class="testimonial-card__name">Peter Conrad</p>
+                <p class="testimonial-card__role">Owner, Baumpflege Conrad GmbH</p>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-card__quote">Professional, fast, and the result exceeded every expectation. They understood our concept immediately and delivered a website that feels exactly like our restaurant.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">MB</div>
+              <div>
+                <p class="testimonial-card__name">Maria Brandt</p>
+                <p class="testimonial-card__role">Owner, Restaurant Goldener Hirsch</p>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-card__quote">Our old website was costing us patients — it looked unprofessional and wasn't mobile-friendly. The new site is a different world. Appointments through the web tripled.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">SM</div>
+              <div>
+                <p class="testimonial-card__name">Dr. Stefan Müller</p>
+                <p class="testimonial-card__role">Internist, Privatpraxis Schwabing</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ════════════════════════════════════════ -->
+    <section class="section bg-alt" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="faq__inner">
+          <div class="faq__sticky reveal-left">
+            <p class="label">Common questions</p>
+            <h2 class="section__title" id="faq-title">Everything you want to know.</h2>
+            <p class="section__lead" style="margin-bottom:var(--sp-8)">Still have questions? <a href="./contact.html" style="color:var(--c-text-brand);text-decoration:underline">Write to us directly.</a></p>
+          </div>
+          <div class="faq__list reveal">
+            <div class="faq-item">
+              <button class="faq-item__trigger" aria-expanded="false">
+                How long does a website project take?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p>Most projects take between 2 and 6 weeks from briefing to launch. A clean 4-page business website typically takes 2–3 weeks. Larger builds with custom features, integrations or a CMS take 4–6 weeks. We'll give you a precise timeline before any work begins.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__trigger" aria-expanded="false">
+                How much does a website cost?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p>Projects start from €1,500 for a clean, professional 4-page website. More complex builds with custom functionality, animations or CMS integration start from €3,500. Every project comes with a fixed-price quote — no hidden costs, no hourly billing surprises.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__trigger" aria-expanded="false">
+                Do I need to provide my own content?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p>Ideally yes — you know your business best. We'll give you a simple content checklist to guide you. If writing isn't your thing, we offer copywriting as an add-on. For images, we can source professional stock photography or work with your own photos.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__trigger" aria-expanded="false">
+                Can I edit the website myself after delivery?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p>Yes. We can integrate a lightweight CMS (content management system) so you can update text, photos and news items without any technical knowledge. Alternatively, we offer monthly maintenance packages where we handle all updates for you.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__trigger" aria-expanded="false">
+                What about hosting and domain registration?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p>We can advise on and set up hosting and domain registration — typically with reliable providers like Hetzner, STRATO or Cloudflare. Hosting costs are separate from our design/development fees and usually amount to €5–15/month depending on your needs.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__trigger" aria-expanded="false">
+                Do you work with businesses outside Munich?
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p>Absolutely. While most of our clients are in Munich and the surrounding area, we work with businesses across Germany and the German-speaking world. All briefings and reviews can be done remotely via video call — no in-person meetings required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BAND ═══════════════════════════════════ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="cta-band__blob" aria-hidden="true"></div>
+      <div class="wrap cta-band__inner">
+        <p class="cta-band__label reveal">Ready to start?</p>
+        <h2 class="cta-band__title reveal">Let's build something<br>worth talking about.</h2>
+        <p class="cta-band__sub reveal">Free initial consultation. Fixed pricing. No surprises.</p>
+        <div class="cta-band__actions reveal">
+          <a href="./contact.html" class="btn btn-primary btn--lg">Get a Free Quote</a>
+          <a href="./clients.html" class="btn btn-secondary btn--lg">See Our Work First</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap footer__inner">
+      <div>
+        <a href="./index.html" class="footer__logo">N&K Webdesign</a>
+        <p class="footer__tagline">Professional web design and development for ambitious businesses in Munich and beyond.</p>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Pages</h3>
+        <ul role="list">
+          <li><a href="./index.html"   class="footer__link">Home</a></li>
+          <li><a href="./about.html"   class="footer__link">About Us</a></li>
+          <li><a href="./clients.html" class="footer__link">Our Clients</a></li>
+          <li><a href="./contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Legal</h3>
+        <ul role="list">
+          <li><a href="./impressum.html"      class="footer__link">Impressum</a></li>
+          <li><a href="./privacy-policy.html" class="footer__link">Datenschutz</a></li>
+          <li><a href="./cookies.html"        class="footer__link">Cookie Policy</a></li>
+          <li><a href="./terms.html"          class="footer__link">Terms &amp; Conditions</a></li>
+          <li><button class="footer__link" id="cookie-settings-btn">Cookie Settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap footer__bottom-inner">
+        <p>© <span id="footer-year"></span> Ney &amp; Kappes Innovations GbR · Munich, Germany</p>
+        <p>Designed &amp; built by <strong>N&amp;K Webdesign</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./theme.js"            defer></script>
+  <script src="./main.js"             defer></script>
+  <script src="./scroll-animations.js" defer></script>
+  <script src="./cookie-consent.js"   defer></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if(localStorage.theme==='light'||(localStorage.theme!=='dark'&&matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light-mode')</script>
+  <title>Datenschutzerklärung | N&K Webdesign Munich</title>
+  <meta name="description" content="Datenschutzerklärung der Ney & Kappes Innovations GbR gemäß DSGVO und BDSG.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nk-webdesign.de/privacy-policy.html">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#7C3AED">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./animations.css">
+  <link rel="stylesheet" href="./components.css">
+  <style>
+    .legal-page { padding-top: clamp(8rem, 14vw, 11rem); padding-bottom: var(--section-gap); }
+    .legal-page__header { margin-bottom: var(--sp-16); border-bottom: 1px solid var(--c-border); padding-bottom: var(--sp-10); }
+    .legal-page__title { font-size: var(--fs-4xl); font-weight: var(--fw-extrabold); letter-spacing: var(--ls-tight); margin-bottom: var(--sp-4); }
+    .legal-page__meta { font-size: var(--fs-sm); color: var(--c-text-3); }
+    .legal-wrap { max-width: 780px; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" hidden role="dialog" aria-label="Cookie-Einwilligung">
+    <p class="cookie-banner__title">Wir verwenden Cookies 🍪</p>
+    <p class="cookie-banner__text">Wir verwenden notwendige Cookies. Weitere Informationen in unserer <a href="./cookies.html">Cookie-Richtlinie</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-reject" class="btn btn-secondary btn--sm">Ablehnen</button>
+      <button id="cookie-manage" class="btn btn-secondary btn--sm">Verwalten</button>
+      <button id="cookie-accept" class="btn btn-primary  btn--sm">Alle akzeptieren</button>
+    </div>
+  </div>
+  <div id="cookie-modal" hidden role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen" class="cookie-modal">
+    <div id="cookie-modal-overlay" class="cookie-modal__overlay"></div>
+    <div class="cookie-modal__card">
+      <h2 class="cookie-modal__title">Cookie-Einstellungen</h2>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Notwendig</p><p class="cookie-toggle-desc">Erforderlich. Kann nicht deaktiviert werden.</p></div><label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Analyse</p><p class="cookie-toggle-desc">Google Analytics 4 (anonymisiert).</p></div><label class="toggle-switch"><input id="toggle-analytics" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Marketing</p><p class="cookie-toggle-desc">Relevante Werbung auf anderen Websites.</p></div><label class="toggle-switch"><input id="toggle-marketing" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-modal__footer"><button id="cookie-modal-save" class="btn btn-primary" style="width:100%">Einstellungen speichern</button></div>
+    </div>
+  </div>
+
+  <header id="site-header" class="site-header">
+    <nav class="nav wrap" role="navigation" aria-label="Hauptnavigation">
+      <a href="./index.html" class="nav__logo" aria-label="N&K Webdesign — Startseite">
+        <svg class="nav__logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="8" fill="var(--c-brand)"/><path d="M10 26V10L18 22V10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 10h6v16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 18h5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="nav__logo-wordmark">N&K <span class="nav__logo-suffix">Webdesign</span></span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="./index.html"   class="nav__link">Home</a></li>
+        <li><a href="./about.html"   class="nav__link">Über uns</a></li>
+        <li><a href="./clients.html" class="nav__link">Referenzen</a></li>
+        <li><a href="./contact.html" class="nav__link">Kontakt</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__theme" id="theme-toggle" aria-label="Zum hellen Design wechseln">
+          <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="./contact.html" class="btn btn-primary btn--sm nav__cta">Angebot anfragen</a>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div class="nav__overlay" id="nav-overlay" hidden role="dialog" aria-modal="true" aria-label="Navigationsmenü">
+      <ul class="nav__overlay-links" role="list">
+        <li><a href="./index.html"   class="nav__overlay-link">Home</a></li>
+        <li><a href="./about.html"   class="nav__overlay-link">Über uns</a></li>
+        <li><a href="./clients.html" class="nav__overlay-link">Referenzen</a></li>
+        <li><a href="./contact.html" class="nav__overlay-link">Kontakt</a></li>
+      </ul>
+      <a href="./contact.html" class="btn btn-primary btn--lg">Angebot anfragen</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="legal-page bg-default">
+      <div class="wrap legal-wrap">
+        <div class="legal-page__header">
+          <p class="label">Rechtliches</p>
+          <h1 class="legal-page__title">Datenschutzerklärung</h1>
+          <p class="legal-page__meta">Letzte Aktualisierung: <!-- REPLACE: Datum einfügen --> &nbsp;|&nbsp; Verantwortlicher: Ney &amp; Kappes Innovations GbR</p>
+        </div>
+
+        <div class="prose">
+
+          <h2>1. Verantwortlicher</h2>
+          <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) ist:</p>
+          <p>
+            Ney &amp; Kappes Innovations GbR<br>
+            <!-- REPLACE: Straße und Hausnummer --><br>
+            <!-- REPLACE: PLZ --> München<br>
+            Deutschland<br>
+            E-Mail: <a href="mailto:hello@nk-webdesign.de">hello@nk-webdesign.de</a><br>
+            <!-- REPLACE: Telefonnummer -->
+          </p>
+
+          <h2>2. Erhobene Daten und Verarbeitungszwecke</h2>
+
+          <h3>2.1 Kontaktformular</h3>
+          <p>Wenn Sie uns über das Kontaktformular auf dieser Website kontaktieren, werden folgende personenbezogene Daten erhoben und verarbeitet:</p>
+          <ul>
+            <li>Vor- und Nachname</li>
+            <li>E-Mail-Adresse</li>
+            <li>Name des Unternehmens (optional)</li>
+            <li>Inhalt Ihrer Anfrage</li>
+          </ul>
+          <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen). Die Daten werden für die Bearbeitung Ihrer Anfrage und ggf. für eine anschließende Vertragsabwicklung verwendet. Auftragsverarbeiter für das Kontaktformular ist Formspree Inc., 340 Pine St, Suite 703, San Francisco, CA 94104, USA. Es wurde ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO abgeschlossen.</p>
+
+          <h3>2.2 Server-Logfiles</h3>
+          <p>Beim Aufruf dieser Website werden automatisch Informationen in Server-Logfiles gespeichert, darunter IP-Adresse (anonymisiert), Browsertyp und -version, Betriebssystem, Referrer-URL und Zugriffszeit. Diese Daten werden ausschließlich zur Sicherstellung des Betriebs und zur Fehleranalyse verwendet und nach 7 Tagen automatisch gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+          <h3>2.3 Analytische Cookies (nur mit Einwilligung)</h3>
+          <p>Nach Ihrer ausdrücklichen Einwilligung setzen wir Google Analytics 4 ein, ein Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Dabei werden Cookies gesetzt, die eine Analyse der Benutzung der Website ermöglichen. Die IP-Adresse wird dabei anonymisiert (IP-Anonymisierung aktiviert). Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen widerrufen.</p>
+
+          <h2>3. Weitergabe von Daten an Dritte</h2>
+          <p>Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, wenn dies zur Erfüllung des Vertragsverhältnisses notwendig ist, Sie ausdrücklich eingewilligt haben oder eine gesetzliche Verpflichtung besteht. Eingesetzte Auftragsverarbeiter sind in dieser Datenschutzerklärung genannt; mit allen wurde ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO abgeschlossen.</p>
+
+          <h2>4. Speicherdauer</h2>
+          <p>Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Verarbeitungszweck erforderlich ist. Kontaktformulardaten werden nach abschließender Bearbeitung der Anfrage, spätestens nach 3 Jahren, gelöscht, sofern keine gesetzliche Aufbewahrungspflicht besteht (z. B. handels- und steuerrechtliche Aufbewahrungsfristen von bis zu 10 Jahren).</p>
+
+          <h2>5. Ihre Rechte</h2>
+          <p>Sie haben gegenüber uns folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
+          <ul>
+            <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+            <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+            <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+            <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+            <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+            <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
+            <li><strong>Recht auf Widerruf von Einwilligungen</strong> (Art. 7 Abs. 3 DSGVO)</li>
+          </ul>
+          <p>Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:hello@nk-webdesign.de">hello@nk-webdesign.de</a></p>
+
+          <h2>6. Beschwerderecht bei der Aufsichtsbehörde</h2>
+          <p>Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Die zuständige Behörde für Bayern ist:</p>
+          <p>
+            Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br>
+            Promenade 18, 91522 Ansbach<br>
+            <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer">www.lda.bayern.de</a>
+          </p>
+
+          <h2>7. Änderungen dieser Datenschutzerklärung</h2>
+          <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren, um sie an geänderte Rechtslagen oder bei Änderungen des Dienstes sowie der Datenverarbeitung anzupassen. Die jeweils aktuelle Version ist auf dieser Seite abrufbar.</p>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap footer__inner">
+      <div>
+        <a href="./index.html" class="footer__logo">N&K Webdesign</a>
+        <p class="footer__tagline">Professionelles Webdesign und -entwicklung für ambitionierte Unternehmen in München und darüber hinaus.</p>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Seiten</h3>
+        <ul role="list">
+          <li><a href="./index.html"   class="footer__link">Home</a></li>
+          <li><a href="./about.html"   class="footer__link">Über uns</a></li>
+          <li><a href="./clients.html" class="footer__link">Referenzen</a></li>
+          <li><a href="./contact.html" class="footer__link">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Rechtliches</h3>
+        <ul role="list">
+          <li><a href="./impressum.html"      class="footer__link">Impressum</a></li>
+          <li><a href="./privacy-policy.html" class="footer__link">Datenschutz</a></li>
+          <li><a href="./cookies.html"        class="footer__link">Cookie-Richtlinie</a></li>
+          <li><a href="./terms.html"          class="footer__link">AGB</a></li>
+          <li><button class="footer__link" id="cookie-settings-btn">Cookie-Einstellungen</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap footer__bottom-inner">
+        <p>© <span id="footer-year"></span> Ney &amp; Kappes Innovations GbR · München, Deutschland</p>
+        <p>Designed &amp; built by <strong>N&amp;K Webdesign</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./theme.js"             defer></script>
+  <script src="./main.js"              defer></script>
+  <script src="./cookie-consent.js"    defer></script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if(localStorage.theme==='light'||(localStorage.theme!=='dark'&&matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light-mode')</script>
+  <title>About Us | N&K Webdesign Munich</title>
+  <meta name="description" content="We're a Munich-based web design studio. Two founders, one focus: building websites that drive real results for local businesses.">
+  <link rel="canonical" href="https://nk-webdesign.de/about.html">
+  <meta property="og:type"  content="website">
+  <meta property="og:url"   content="https://nk-webdesign.de/about.html">
+  <meta property="og:title" content="About N&K Webdesign Munich">
+  <meta property="og:description" content="We're a Munich-based web design studio specialising in modern websites for businesses.">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#7C3AED">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./animations.css">
+  <link rel="stylesheet" href="./components.css">
+  <style>
+    /* ── Values grid ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-6);
+    }
+    @media (min-width: 640px)  { .values-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .values-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .value-card {
+      background: var(--c-bg-3);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-8);
+      transition: border-color var(--t-base);
+    }
+    .value-card:hover { border-color: var(--c-brand-mid); }
+
+    .value-card__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-lg);
+      background: var(--c-brand-soft);
+      border: 1px solid var(--c-brand-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-text-brand);
+      margin-bottom: var(--sp-5);
+    }
+    .value-card__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--c-text);
+      margin-bottom: var(--sp-3);
+    }
+    .value-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--c-text-2);
+      line-height: var(--lh-relaxed);
+    }
+
+    /* ── Story layout ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-12);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .story-grid { grid-template-columns: 48% 1fr; gap: var(--sp-16); }
+    }
+
+    .story-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .story-visual__card {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 4/3;
+      background: linear-gradient(145deg, var(--c-brand-soft) 0%, var(--c-bg-3) 100%);
+      border: 1px solid var(--c-border-2);
+      border-radius: var(--r-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-visual__text {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 15vw, 9rem);
+      font-weight: var(--fw-extrabold);
+      letter-spacing: var(--ls-tight);
+      color: rgba(124, 58, 237, 0.15);
+      user-select: none;
+    }
+    .story-visual__badge {
+      position: absolute;
+      bottom: var(--sp-6);
+      left: var(--sp-6);
+      background: var(--c-bg-3);
+      border: 1px solid var(--c-border-2);
+      border-radius: var(--r-lg);
+      padding: var(--sp-4) var(--sp-5);
+    }
+    .story-visual__badge p:first-child {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--c-text);
+      line-height: 1;
+    }
+    .story-visual__badge p:last-child {
+      font-size: var(--fs-xs);
+      color: var(--c-text-3);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" hidden role="dialog" aria-label="Cookie consent">
+    <p class="cookie-banner__title">We use cookies 🍪</p>
+    <p class="cookie-banner__text">We use essential cookies to make our site work. We'd also like to set analytics cookies. See our <a href="./cookies.html">Cookie Policy</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-reject" class="btn btn-secondary btn--sm">Reject Non-Essential</button>
+      <button id="cookie-manage" class="btn btn-secondary btn--sm">Manage</button>
+      <button id="cookie-accept" class="btn btn-primary  btn--sm">Accept All</button>
+    </div>
+  </div>
+  <div id="cookie-modal" hidden role="dialog" aria-modal="true" aria-label="Cookie preferences" class="cookie-modal">
+    <div id="cookie-modal-overlay" class="cookie-modal__overlay"></div>
+    <div class="cookie-modal__card">
+      <h2 class="cookie-modal__title">Cookie Preferences</h2>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Essential</p><p class="cookie-toggle-desc">Required. Cannot be disabled.</p></div><label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Analytics</p><p class="cookie-toggle-desc">Google Analytics 4 (anonymised).</p></div><label class="toggle-switch"><input id="toggle-analytics" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Marketing</p><p class="cookie-toggle-desc">Relevant ads on other websites.</p></div><label class="toggle-switch"><input id="toggle-marketing" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-modal__footer"><button id="cookie-modal-save" class="btn btn-primary" style="width:100%">Save Preferences</button></div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER ════════════════════════════════════ -->
+  <header id="site-header" class="site-header">
+    <nav class="nav wrap" role="navigation" aria-label="Main navigation">
+      <a href="./index.html" class="nav__logo" aria-label="N&K Webdesign — home">
+        <svg class="nav__logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="36" height="36" rx="8" fill="var(--c-brand)"/><path d="M10 26V10L18 22V10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 10h6v16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 18h5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="nav__logo-wordmark">N&K <span class="nav__logo-suffix">Webdesign</span></span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="./index.html"   class="nav__link">Home</a></li>
+        <li><a href="./about.html"   class="nav__link" aria-current="page">About</a></li>
+        <li><a href="./clients.html" class="nav__link">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__theme" id="theme-toggle" aria-label="Switch to light mode">
+          <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="./contact.html" class="btn btn-primary btn--sm nav__cta">Get a Quote</a>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div class="nav__overlay" id="nav-overlay" hidden role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <ul class="nav__overlay-links" role="list">
+        <li><a href="./index.html"   class="nav__overlay-link">Home</a></li>
+        <li><a href="./about.html"   class="nav__overlay-link" aria-current="page">About</a></li>
+        <li><a href="./clients.html" class="nav__overlay-link">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__overlay-link">Contact</a></li>
+      </ul>
+      <a href="./contact.html" class="btn btn-primary btn--lg">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ PAGE HERO ════════════════════════════════ -->
+    <section class="page-hero" aria-label="About us">
+      <div class="page-hero__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="label hero-animate">Munich-based since 2022</p>
+        <h1 class="page-hero__title hero-animate">Two founders.<br>One obsession.</h1>
+        <p class="page-hero__sub hero-animate">We started N&K because too many Munich businesses had no website — or one that was actively hurting them. We exist to fix that.</p>
+      </div>
+    </section>
+
+    <!-- ══ STORY ════════════════════════════════════ -->
+    <section class="section bg-default" id="story" aria-labelledby="story-title">
+      <div class="wrap">
+        <div class="story-grid">
+          <div class="story-visual reveal-left" aria-hidden="true">
+            <div class="story-visual__card">
+              <span class="story-visual__text">N&K</span>
+              <div class="story-visual__badge">
+                <p>3+</p>
+                <p>Years in Munich</p>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-right">
+            <p class="label">Our story</p>
+            <h2 class="section__title" id="story-title">We know what a bad website costs you.</h2>
+            <div class="prose">
+              <p>N&K Webdesign was founded in Munich out of a simple frustration: watching excellent local businesses lose customers every day because their websites looked outdated, loaded slowly, or — worse — didn't exist at all.</p>
+              <p>We combined a background in design with engineering-grade development standards to offer something the market was missing: websites that look world-class <em>and</em> actually perform.</p>
+              <p>Every project we take on starts with one question: what does success look like for your business? Not how many pages you need, not what your competitor's site looks like — what results will make this project worth it for you? That drives every decision we make.</p>
+              <p>Since 2022, we've worked with businesses across Munich and Bavaria — from sole traders getting online for the first time to established companies that needed a complete digital rebrand.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VALUES ════════════════════════════════════ -->
+    <section class="section bg-alt" id="values" aria-labelledby="values-title">
+      <div class="wrap">
+        <div class="section__header" style="text-align:center">
+          <p class="label reveal" style="justify-content:center">What we believe</p>
+          <h2 class="section__title reveal" id="values-title">How we think<br>about web design.</h2>
+        </div>
+        <div class="values-grid reveal-stagger">
+          <div class="value-card">
+            <div class="value-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="value-card__title">Results first</h3>
+            <p class="value-card__desc">Design is a tool, not a goal. Every visual decision must serve your business objectives — conversions, trust, or enquiries. Pretty is a bonus.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="value-card__title">Speed & reliability</h3>
+            <p class="value-card__desc">A slow website loses customers. We build for performance from the first line of code — not as an afterthought. Sub-2-second loads are our baseline.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="value-card__title">Honesty over sales</h3>
+            <p class="value-card__desc">We won't recommend features you don't need. Fixed pricing, transparent processes, and honest timelines — before any work begins.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="value-card__title">Long-term partnership</h3>
+            <p class="value-card__desc">We don't disappear after launch. Most clients work with us for years — on updates, SEO, or new campaigns. We build relationships, not transactions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STATS ══════════════════════════════════════ -->
+    <section class="section bg-default" aria-label="Studio numbers">
+      <div class="wrap">
+        <div class="stats-strip reveal-stagger">
+          <div class="stat">
+            <p class="stat__num">50<span class="stat__suffix">+</span></p>
+            <p class="stat__label">Clients served</p>
+          </div>
+          <div class="stat">
+            <p class="stat__num">100<span class="stat__suffix">%</span></p>
+            <p class="stat__label">Satisfaction rate</p>
+          </div>
+          <div class="stat">
+            <p class="stat__num">3<span class="stat__suffix">+</span></p>
+            <p class="stat__label">Years in Munich</p>
+          </div>
+          <div class="stat">
+            <p class="stat__num">&lt;2<span class="stat__suffix">s</span></p>
+            <p class="stat__label">Average load time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TEAM ══════════════════════════════════════ -->
+    <section class="section bg-alt" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="section__header">
+          <p class="label reveal">The team</p>
+          <h2 class="section__title reveal" id="team-title">The people behind<br>your website.</h2>
+        </div>
+        <div class="team-grid reveal-stagger" style="max-width:780px">
+          <article class="team-card">
+            <div class="team-card__portrait" style="background:linear-gradient(145deg,#1e0a4b 0%,#2d1469 100%)">
+              <span class="team-card__portrait-bg" aria-hidden="true">Ney</span>
+              <div class="team-card__initials" aria-hidden="true">N</div><!-- REPLACE: swap initials if needed -->
+            </div>
+            <div class="team-card__info">
+              <h3 class="team-card__name"><!-- REPLACE: First name --> Ney</h3>
+              <p class="team-card__role">Design Director &amp; Co-Founder</p>
+              <p class="team-card__bio">Responsible for visual strategy, UX and client communication. With a background in graphic design and digital marketing, he ensures every site is as persuasive as it is beautiful.</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__portrait" style="background:linear-gradient(145deg,#1a2e0a 0%,#2d5214 100%)">
+              <span class="team-card__portrait-bg" aria-hidden="true">K</span>
+              <div class="team-card__initials" aria-hidden="true">K</div>
+            </div>
+            <div class="team-card__info">
+              <h3 class="team-card__name"><!-- REPLACE: First name --> Kappes</h3>
+              <p class="team-card__role">Development Director &amp; Co-Founder</p>
+              <p class="team-card__bio">Handles all technical architecture, development and deployment. Obsessed with performance, accessibility and clean code — ensuring every site scores 95+ on Google PageSpeed.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BAND ═══════════════════════════════════ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="cta-band__blob" aria-hidden="true"></div>
+      <div class="wrap cta-band__inner">
+        <p class="cta-band__label">Let's work together</p>
+        <h2 class="cta-band__title">Ready to get<br>started?</h2>
+        <p class="cta-band__sub">Free initial consultation. Fixed pricing. No surprises.</p>
+        <div class="cta-band__actions">
+          <a href="./contact.html" class="btn btn-primary btn--lg">Start a Project</a>
+          <a href="./clients.html" class="btn btn-secondary btn--lg">See Our Work</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap footer__inner">
+      <div>
+        <a href="./index.html" class="footer__logo">N&K Webdesign</a>
+        <p class="footer__tagline">Professional web design and development for ambitious businesses in Munich and beyond.</p>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Pages</h3>
+        <ul role="list">
+          <li><a href="./index.html"   class="footer__link">Home</a></li>
+          <li><a href="./about.html"   class="footer__link">About Us</a></li>
+          <li><a href="./clients.html" class="footer__link">Our Clients</a></li>
+          <li><a href="./contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Legal</h3>
+        <ul role="list">
+          <li><a href="./impressum.html"      class="footer__link">Impressum</a></li>
+          <li><a href="./privacy-policy.html" class="footer__link">Datenschutz</a></li>
+          <li><a href="./cookies.html"        class="footer__link">Cookie Policy</a></li>
+          <li><a href="./terms.html"          class="footer__link">Terms &amp; Conditions</a></li>
+          <li><button class="footer__link" id="cookie-settings-btn">Cookie Settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap footer__bottom-inner">
+        <p>© <span id="footer-year"></span> Ney &amp; Kappes Innovations GbR · Munich, Germany</p>
+        <p>Designed &amp; built by <strong>N&amp;K Webdesign</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./theme.js"             defer></script>
+  <script src="./main.js"              defer></script>
+  <script src="./scroll-animations.js" defer></script>
+  <script src="./cookie-consent.js"    defer></script>
+</body>
+</html>

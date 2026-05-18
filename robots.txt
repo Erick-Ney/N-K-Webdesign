@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block crawling of search result parameters
+Disallow: /*?*
+
+Sitemap: https://nk-webdesign.de/sitemap.xml

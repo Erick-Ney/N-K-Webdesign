@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if(localStorage.theme==='light'||(localStorage.theme!=='dark'&&matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light-mode')</script>
+  <title>Our Clients & Portfolio | N&K Webdesign Munich</title>
+  <meta name="description" content="Real projects, real results. See how N&K Webdesign has helped Munich businesses grow online — from tree care companies to medical practices.">
+  <link rel="canonical" href="https://nk-webdesign.de/clients.html">
+  <meta property="og:type"  content="website">
+  <meta property="og:url"   content="https://nk-webdesign.de/clients.html">
+  <meta property="og:title" content="Our Clients & Portfolio — N&K Webdesign Munich">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#7C3AED">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./animations.css">
+  <link rel="stylesheet" href="./components.css">
+  <style>
+    /* Project card gradients */
+    .proj-bg--1 { background: linear-gradient(145deg, #052e16 0%, #064e3b 60%, #065f46 100%); }
+    .proj-bg--2 { background: linear-gradient(145deg, #451a03 0%, #78350f 60%, #92400e 100%); }
+    .proj-bg--3 { background: linear-gradient(145deg, #0c4a6e 0%, #075985 60%, #0369a1 100%); }
+    .proj-bg--4 { background: linear-gradient(145deg, #431407 0%, #7c2d12 60%, #9a3412 100%); }
+
+    /* Case study section */
+    .case-study {
+      padding-block: var(--section-gap);
+      border-top: 1px solid var(--c-border);
+    }
+    .case-study:first-child { border-top: none; }
+
+    .case-study__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-12);
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .case-study__grid { grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
+      .case-study:nth-child(even) .case-study__visual { order: -1; }
+    }
+
+    .case-study__visual {
+      aspect-ratio: 4/3;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--c-border);
+    }
+    .case-study__visual-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .case-study__visual-text {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 12vw, 7rem);
+      font-weight: var(--fw-extrabold);
+      font-style: italic;
+      color: rgba(255,255,255,0.08);
+      letter-spacing: -0.04em;
+      user-select: none;
+    }
+    .case-study__visual-badge {
+      position: absolute;
+      top: var(--sp-6);
+      left: var(--sp-6);
+      background: rgba(8,8,16,0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-full);
+      padding: var(--sp-2) var(--sp-4);
+      font-size: var(--fs-xs);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .case-study__label { margin-bottom: var(--sp-3); }
+    .case-study__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-3xl);
+      font-weight: var(--fw-extrabold);
+      letter-spacing: var(--ls-tight);
+      line-height: var(--lh-tight);
+      color: var(--c-text);
+      margin-bottom: var(--sp-5);
+    }
+    .case-study__desc { margin-bottom: var(--sp-6); }
+    .case-study__results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-8);
+    }
+    .result-item {
+      background: var(--c-bg-3);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-5);
+    }
+    .result-item__num {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-extrabold);
+      color: var(--c-text);
+      letter-spacing: var(--ls-tight);
+      margin-bottom: var(--sp-1);
+    }
+    .result-item__num span { color: var(--c-accent); }
+    .result-item__label { font-size: var(--fs-xs); color: var(--c-text-3); text-transform: uppercase; letter-spacing: var(--ls-wide); }
+
+    .case-study__services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+    }
+
+    /* Client logos grid */
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-4);
+    }
+    @media (min-width: 640px)  { .logos-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .logos-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .logo-tile {
+      background: var(--c-bg-3);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      aspect-ratio: 2/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--t-base);
+    }
+    .logo-tile:hover { border-color: var(--c-border-2); }
+    .logo-tile__name {
+      font-family: var(--font-display);
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-sm);
+      color: var(--c-text-3);
+      text-align: center;
+      padding: var(--sp-3);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" hidden role="dialog" aria-label="Cookie consent">
+    <p class="cookie-banner__title">We use cookies 🍪</p>
+    <p class="cookie-banner__text">We use essential cookies to make our site work. We'd also like to set analytics cookies. See our <a href="./cookies.html">Cookie Policy</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-reject" class="btn btn-secondary btn--sm">Reject Non-Essential</button>
+      <button id="cookie-manage" class="btn btn-secondary btn--sm">Manage</button>
+      <button id="cookie-accept" class="btn btn-primary  btn--sm">Accept All</button>
+    </div>
+  </div>
+  <div id="cookie-modal" hidden role="dialog" aria-modal="true" aria-label="Cookie preferences" class="cookie-modal">
+    <div id="cookie-modal-overlay" class="cookie-modal__overlay"></div>
+    <div class="cookie-modal__card">
+      <h2 class="cookie-modal__title">Cookie Preferences</h2>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Essential</p><p class="cookie-toggle-desc">Required. Cannot be disabled.</p></div><label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Analytics</p><p class="cookie-toggle-desc">Google Analytics 4 (anonymised).</p></div><label class="toggle-switch"><input id="toggle-analytics" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Marketing</p><p class="cookie-toggle-desc">Relevant ads on other websites.</p></div><label class="toggle-switch"><input id="toggle-marketing" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-modal__footer"><button id="cookie-modal-save" class="btn btn-primary" style="width:100%">Save Preferences</button></div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER ════════════════════════════════════ -->
+  <header id="site-header" class="site-header">
+    <nav class="nav wrap" role="navigation" aria-label="Main navigation">
+      <a href="./index.html" class="nav__logo" aria-label="N&K Webdesign — home">
+        <svg class="nav__logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="36" height="36" rx="8" fill="var(--c-brand)"/><path d="M10 26V10L18 22V10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 10h6v16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 18h5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="nav__logo-wordmark">N&K <span class="nav__logo-suffix">Webdesign</span></span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="./index.html"   class="nav__link">Home</a></li>
+        <li><a href="./about.html"   class="nav__link">About</a></li>
+        <li><a href="./clients.html" class="nav__link" aria-current="page">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__theme" id="theme-toggle" aria-label="Switch to light mode">
+          <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="./contact.html" class="btn btn-primary btn--sm nav__cta">Get a Quote</a>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div class="nav__overlay" id="nav-overlay" hidden role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <ul class="nav__overlay-links" role="list">
+        <li><a href="./index.html"   class="nav__overlay-link">Home</a></li>
+        <li><a href="./about.html"   class="nav__overlay-link">About</a></li>
+        <li><a href="./clients.html" class="nav__overlay-link" aria-current="page">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__overlay-link">Contact</a></li>
+      </ul>
+      <a href="./contact.html" class="btn btn-primary btn--lg">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ PAGE HERO ════════════════════════════════ -->
+    <section class="page-hero" aria-label="Our clients">
+      <div class="page-hero__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="label hero-animate">50+ projects delivered</p>
+        <h1 class="page-hero__title hero-animate">Real businesses.<br>Real results.</h1>
+        <p class="page-hero__sub hero-animate">We measure success in enquiries, appointments and revenue — not just in pixels. Here's a selection of what we've built.</p>
+      </div>
+    </section>
+
+    <!-- ══ CASE STUDIES ══════════════════════════════ -->
+    <section class="section bg-default" aria-labelledby="cases-title">
+      <div class="wrap">
+        <p class="label reveal">Case studies</p>
+        <h2 class="section__title reveal" id="cases-title" style="margin-bottom:var(--sp-16)">Four projects,<br>four stories.</h2>
+
+        <!-- Case 1: Baumpflege Conrad -->
+        <div class="case-study">
+          <div class="case-study__grid">
+            <div class="reveal-left">
+              <p class="label case-study__label">Tree Care · Munich</p>
+              <h3 class="case-study__title">Baumpflege Conrad GmbH</h3>
+              <p class="case-study__desc">Peter Conrad had been running his tree care business for 14 years with no website at all — relying entirely on word of mouth. After a slow winter season, he decided it was time to change that. We built a clean, fast website optimised for local search terms like "Baumpflege München" and "Baumschnitt Kosten." Within three months, his phone was ringing with customers who'd found him on Google.</p>
+              <div class="case-study__results">
+                <div class="result-item">
+                  <p class="result-item__num">+<span>280</span>%</p>
+                  <p class="result-item__label">Online enquiries</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num">Page <span>1</span></p>
+                  <p class="result-item__label">Google Munich</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>3</span>wks</p>
+                  <p class="result-item__label">Delivery time</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>0</span>→∞</p>
+                  <p class="result-item__label">Was offline</p>
+                </div>
+              </div>
+              <div class="case-study__services">
+                <span class="badge badge--brand">Web Design</span>
+                <span class="badge badge--brand">Development</span>
+                <span class="badge badge--brand">Local SEO</span>
+                <span class="badge badge--brand">Content</span>
+              </div>
+            </div>
+            <div class="case-study__visual proj-bg--1 reveal-right">
+              <div class="case-study__visual-inner"><span class="case-study__visual-text">Conrad</span></div>
+              <div class="case-study__visual-badge">Baumpflege Munich</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: Restaurant Goldener Hirsch -->
+        <div class="case-study">
+          <div class="case-study__grid">
+            <div class="case-study__visual proj-bg--2 reveal-left">
+              <div class="case-study__visual-inner"><span class="case-study__visual-text">Hirsch</span></div>
+              <div class="case-study__visual-badge">Restaurant Schwabing</div>
+            </div>
+            <div class="reveal-right">
+              <p class="label case-study__label">Restaurant · Schwabing, Munich</p>
+              <h3 class="case-study__title">Restaurant Goldener Hirsch</h3>
+              <p class="case-study__desc">Maria and Klaus Brandt ran a beloved neighbourhood restaurant in Schwabing, but with no web presence, they were invisible to the tourists and young professionals who search for restaurants on their phones before going out. We designed a warm, elegant site with an online menu, reservation form, and optimised Google Business integration. Within six weeks of launch, they were fully booked every Friday and Saturday.</p>
+              <div class="case-study__results">
+                <div class="result-item">
+                  <p class="result-item__num"><span>100</span>%</p>
+                  <p class="result-item__label">Weekend occupancy</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>4.8</span>★</p>
+                  <p class="result-item__label">Google rating</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>1st</span></p>
+                  <p class="result-item__label">Online presence</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>2</span>wks</p>
+                  <p class="result-item__label">Delivery time</p>
+                </div>
+              </div>
+              <div class="case-study__services">
+                <span class="badge badge--brand">Web Design</span>
+                <span class="badge badge--brand">Brand Identity</span>
+                <span class="badge badge--brand">Google Business</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: Dr. Müller -->
+        <div class="case-study">
+          <div class="case-study__grid">
+            <div class="reveal-left">
+              <p class="label case-study__label">Medical Practice · Munich</p>
+              <h3 class="case-study__title">Praxis Dr. Stefan Müller</h3>
+              <p class="case-study__desc">Dr. Müller's practice had a website, but it was built in 2015 and hadn't been touched since. On mobile, the text was unreadable and the booking form was broken. New patients were landing on the site and immediately going to a competitor. We rebuilt it from scratch — clean, professional, DSGVO-compliant, and with an online appointment system that now handles 95% of new bookings without any phone calls.</p>
+              <div class="case-study__results">
+                <div class="result-item">
+                  <p class="result-item__num">+<span>95</span>%</p>
+                  <p class="result-item__label">Online appointments</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>−60</span>%</p>
+                  <p class="result-item__label">Admin phone calls</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>99</span></p>
+                  <p class="result-item__label">PageSpeed score</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>4</span>wks</p>
+                  <p class="result-item__label">Delivery time</p>
+                </div>
+              </div>
+              <div class="case-study__services">
+                <span class="badge badge--brand">Redesign</span>
+                <span class="badge badge--brand">Development</span>
+                <span class="badge badge--brand">SEO</span>
+                <span class="badge badge--brand">DSGVO</span>
+              </div>
+            </div>
+            <div class="case-study__visual proj-bg--3 reveal-right">
+              <div class="case-study__visual-inner"><span class="case-study__visual-text">Praxis</span></div>
+              <div class="case-study__visual-badge">Medical · Munich</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4: FitCity Munich -->
+        <div class="case-study">
+          <div class="case-study__grid">
+            <div class="case-study__visual proj-bg--4 reveal-left">
+              <div class="case-study__visual-inner"><span class="case-study__visual-text">FitCity</span></div>
+              <div class="case-study__visual-badge">Fitness Studio</div>
+            </div>
+            <div class="reveal-right">
+              <p class="label case-study__label">Fitness Studio · Munich</p>
+              <h3 class="case-study__title">FitCity Munich</h3>
+              <p class="case-study__desc">FitCity had a functional website but it failed to communicate the energy of the studio or convert visitors into sign-ups. Their bounce rate was 78%. We redesigned with a bolder, more confident aesthetic — gym footage, social proof, a clear pricing table and a frictionless trial registration form. The result: a 180% increase in new member sign-ups within 90 days of launch.</p>
+              <div class="case-study__results">
+                <div class="result-item">
+                  <p class="result-item__num">+<span>180</span>%</p>
+                  <p class="result-item__label">New memberships</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>−44</span>%</p>
+                  <p class="result-item__label">Bounce rate</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>3×</span></p>
+                  <p class="result-item__label">Trial sign-ups</p>
+                </div>
+                <div class="result-item">
+                  <p class="result-item__num"><span>5</span>wks</p>
+                  <p class="result-item__label">Delivery time</p>
+                </div>
+              </div>
+              <div class="case-study__services">
+                <span class="badge badge--brand">Redesign</span>
+                <span class="badge badge--brand">CRO</span>
+                <span class="badge badge--brand">Analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ ALL CLIENTS GRID ══════════════════════════ -->
+    <section class="section bg-alt" aria-labelledby="all-clients-title">
+      <div class="wrap">
+        <div class="section__header" style="text-align:center">
+          <p class="label reveal" style="justify-content:center">Our clients</p>
+          <h2 class="section__title reveal" id="all-clients-title">50+ businesses<br>across Bavaria.</h2>
+        </div>
+        <div class="logos-grid reveal-stagger">
+          <div class="logo-tile"><p class="logo-tile__name">Baumpflege Conrad</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Restaurant Goldener Hirsch</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Praxis Dr. Müller</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">FitCity Munich</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Bäckerei Steinberg</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Kanzlei Weber &amp; Partner</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Auto-Service Riedl</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Kosmetik Salon Iris</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Steuerberatung Huber</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Physiotherapie Zentrum</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Fotostudio Lehmann</p></div>
+          <div class="logo-tile"><p class="logo-tile__name">Café Mariahilf</p></div>
+        </div>
+        <p class="text-muted" style="text-align:center;margin-top:var(--sp-8);font-size:var(--fs-sm)">… and many more. Some clients prefer to remain unlisted.</p>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ══════════════════════════════ -->
+    <section class="section bg-default" aria-labelledby="testimonials-title">
+      <div class="wrap">
+        <div class="section__header" style="text-align:center">
+          <p class="label reveal" style="justify-content:center">What clients say</p>
+          <h2 class="section__title reveal" id="testimonials-title">The results speak.<br>So do our clients.</h2>
+        </div>
+        <div class="testimonials__grid reveal-stagger">
+          <article class="testimonial-card">
+            <p class="testimonial-card__quote">Working with N&K completely transformed how our customers find us. We went from nothing online to receiving 15–20 new enquiries a week through the website alone.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">PC</div>
+              <div>
+                <p class="testimonial-card__name">Peter Conrad</p>
+                <p class="testimonial-card__role">Owner, Baumpflege Conrad GmbH</p>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-card__quote">Professional, fast, and the result exceeded every expectation. They understood our restaurant concept immediately and delivered a website that feels exactly like us.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">MB</div>
+              <div>
+                <p class="testimonial-card__name">Maria Brandt</p>
+                <p class="testimonial-card__role">Owner, Restaurant Goldener Hirsch</p>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-card__quote">Our old site was costing us patients. The new site is a different world — patients comment on it regularly. Online appointments have more than doubled.</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">SM</div>
+              <div>
+                <p class="testimonial-card__name">Dr. Stefan Müller</p>
+                <p class="testimonial-card__role">Internist, Privatpraxis Schwabing</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BAND ═══════════════════════════════════ -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="cta-band__blob" aria-hidden="true"></div>
+      <div class="wrap cta-band__inner">
+        <p class="cta-band__label">Your turn</p>
+        <h2 class="cta-band__title">Your business<br>could be next.</h2>
+        <p class="cta-band__sub">Free consultation. Fixed pricing. Delivered in weeks.</p>
+        <div class="cta-band__actions">
+          <a href="./contact.html" class="btn btn-primary btn--lg">Start a Project</a>
+          <a href="./about.html"   class="btn btn-secondary btn--lg">Meet the Team</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap footer__inner">
+      <div>
+        <a href="./index.html" class="footer__logo">N&K Webdesign</a>
+        <p class="footer__tagline">Professional web design and development for ambitious businesses in Munich and beyond.</p>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Pages</h3>
+        <ul role="list">
+          <li><a href="./index.html"   class="footer__link">Home</a></li>
+          <li><a href="./about.html"   class="footer__link">About Us</a></li>
+          <li><a href="./clients.html" class="footer__link">Our Clients</a></li>
+          <li><a href="./contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Legal</h3>
+        <ul role="list">
+          <li><a href="./impressum.html"      class="footer__link">Impressum</a></li>
+          <li><a href="./privacy-policy.html" class="footer__link">Datenschutz</a></li>
+          <li><a href="./cookies.html"        class="footer__link">Cookie Policy</a></li>
+          <li><a href="./terms.html"          class="footer__link">Terms &amp; Conditions</a></li>
+          <li><button class="footer__link" id="cookie-settings-btn">Cookie Settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap footer__bottom-inner">
+        <p>© <span id="footer-year"></span> Ney &amp; Kappes Innovations GbR · Munich, Germany</p>
+        <p>Designed &amp; built by <strong>N&amp;K Webdesign</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./theme.js"             defer></script>
+  <script src="./main.js"              defer></script>
+  <script src="./scroll-animations.js" defer></script>
+  <script src="./cookie-consent.js"    defer></script>
+</body>
+</html>

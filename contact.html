@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if(localStorage.theme==='light'||(localStorage.theme!=='dark'&&matchMedia('(prefers-color-scheme:light)').matches))document.documentElement.classList.add('light-mode')</script>
+  <title>Contact Us | N&K Webdesign Munich</title>
+  <meta name="description" content="Get in touch with N&K Webdesign. Free initial consultation for your web project. Based in Munich — available remotely across Germany.">
+  <link rel="canonical" href="https://nk-webdesign.de/contact.html">
+  <meta property="og:type"  content="website">
+  <meta property="og:url"   content="https://nk-webdesign.de/contact.html">
+  <meta property="og:title" content="Contact N&K Webdesign Munich">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#7C3AED">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./design-tokens.css">
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./animations.css">
+  <link rel="stylesheet" href="./components.css">
+  <style>
+    .mini-faq { margin-top: var(--sp-12); }
+    .mini-faq-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-bold);
+      color: var(--c-text);
+      margin-bottom: var(--sp-6);
+    }
+    .mini-faq-item {
+      padding-block: var(--sp-5);
+      border-top: 1px solid var(--c-border);
+    }
+    .mini-faq-item:last-child { border-bottom: 1px solid var(--c-border); }
+    .mini-faq-q {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      color: var(--c-text);
+      margin-bottom: var(--sp-2);
+    }
+    .mini-faq-a {
+      font-size: var(--fs-sm);
+      color: var(--c-text-3);
+      line-height: var(--lh-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" hidden role="dialog" aria-label="Cookie consent">
+    <p class="cookie-banner__title">We use cookies 🍪</p>
+    <p class="cookie-banner__text">We use essential cookies to make our site work. See our <a href="./cookies.html">Cookie Policy</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-reject" class="btn btn-secondary btn--sm">Reject Non-Essential</button>
+      <button id="cookie-manage" class="btn btn-secondary btn--sm">Manage</button>
+      <button id="cookie-accept" class="btn btn-primary  btn--sm">Accept All</button>
+    </div>
+  </div>
+  <div id="cookie-modal" hidden role="dialog" aria-modal="true" aria-label="Cookie preferences" class="cookie-modal">
+    <div id="cookie-modal-overlay" class="cookie-modal__overlay"></div>
+    <div class="cookie-modal__card">
+      <h2 class="cookie-modal__title">Cookie Preferences</h2>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Essential</p><p class="cookie-toggle-desc">Required. Cannot be disabled.</p></div><label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Analytics</p><p class="cookie-toggle-desc">Google Analytics 4 (anonymised).</p></div><label class="toggle-switch"><input id="toggle-analytics" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-toggle-row"><div class="cookie-toggle-info"><p class="cookie-toggle-name">Marketing</p><p class="cookie-toggle-desc">Relevant ads on other websites.</p></div><label class="toggle-switch"><input id="toggle-marketing" type="checkbox"><span class="toggle-slider"></span></label></div>
+      <div class="cookie-modal__footer"><button id="cookie-modal-save" class="btn btn-primary" style="width:100%">Save Preferences</button></div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER ════════════════════════════════════ -->
+  <header id="site-header" class="site-header">
+    <nav class="nav wrap" role="navigation" aria-label="Main navigation">
+      <a href="./index.html" class="nav__logo" aria-label="N&K Webdesign — home">
+        <svg class="nav__logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="36" height="36" rx="8" fill="var(--c-brand)"/><path d="M10 26V10L18 22V10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 10h6v16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 18h5" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="nav__logo-wordmark">N&K <span class="nav__logo-suffix">Webdesign</span></span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="./index.html"   class="nav__link">Home</a></li>
+        <li><a href="./about.html"   class="nav__link">About</a></li>
+        <li><a href="./clients.html" class="nav__link">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__link" aria-current="page">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="nav__theme" id="theme-toggle" aria-label="Switch to light mode">
+          <svg class="icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="./contact.html" class="btn btn-primary btn--sm nav__cta" aria-current="page">Get a Quote</a>
+        <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <div class="nav__overlay" id="nav-overlay" hidden role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <ul class="nav__overlay-links" role="list">
+        <li><a href="./index.html"   class="nav__overlay-link">Home</a></li>
+        <li><a href="./about.html"   class="nav__overlay-link">About</a></li>
+        <li><a href="./clients.html" class="nav__overlay-link">Our Clients</a></li>
+        <li><a href="./contact.html" class="nav__overlay-link" aria-current="page">Contact</a></li>
+      </ul>
+      <a href="./contact.html" class="btn btn-primary btn--lg">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══ PAGE HERO ════════════════════════════════ -->
+    <section class="page-hero" aria-label="Contact">
+      <div class="page-hero__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="label hero-animate">Free initial consultation</p>
+        <h1 class="page-hero__title hero-animate">Let's talk<br>about your website.</h1>
+        <p class="page-hero__sub hero-animate">Tell us about your project and we'll get back to you within one business day. No obligation, no sales pitch — just an honest conversation.</p>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT SECTION ══════════════════════════ -->
+    <section class="section bg-default" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact__grid">
+
+          <!-- Info column -->
+          <div class="contact__info reveal-left">
+            <h2 id="contact-title" style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:var(--fw-bold);margin-bottom:var(--sp-8)">Get in touch</h2>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Email</p>
+                <!-- REPLACE: update email address -->
+                <p class="contact__info-value"><a href="mailto:hello@nk-webdesign.de" style="color:inherit">hello@nk-webdesign.de</a></p>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Phone</p>
+                <!-- REPLACE: add phone number -->
+                <p class="contact__info-value"><!-- REPLACE: +49 (0) XXX XXXXXXX --></p>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Location</p>
+                <p class="contact__info-value">Munich, Bavaria, Germany</p>
+              </div>
+            </div>
+
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <p class="contact__info-label">Office hours</p>
+                <p class="contact__info-value">Mon–Fri, 09:00–18:00 Uhr</p>
+              </div>
+            </div>
+
+            <!-- Mini FAQ -->
+            <div class="mini-faq">
+              <p class="mini-faq-title">Quick answers</p>
+              <div class="mini-faq-item">
+                <p class="mini-faq-q">How quickly can you start?</p>
+                <p class="mini-faq-a">Usually within 1–2 weeks of signed agreement and 50% deposit. Rush projects may be accommodated.</p>
+              </div>
+              <div class="mini-faq-item">
+                <p class="mini-faq-q">Do you work remotely?</p>
+                <p class="mini-faq-a">Entirely. All briefings, reviews and handovers are done via video call. No in-person meetings required.</p>
+              </div>
+              <div class="mini-faq-item">
+                <p class="mini-faq-q">Do you offer payment plans?</p>
+                <p class="mini-faq-a">Yes. Our standard terms are 50% on start and 50% on delivery. Other arrangements can be discussed.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form column -->
+          <div class="reveal-right">
+            <div class="form-card">
+              <h2 style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:var(--fw-bold);color:var(--c-text);margin-bottom:var(--sp-2)">Tell us about your project</h2>
+              <p style="font-size:var(--fs-sm);color:var(--c-text-3);margin-bottom:var(--sp-8)">We'll respond within 1 business day.</p>
+
+              <!-- REPLACE: update action with your Formspree form ID -->
+              <form id="contact-form" action="https://formspree.io/f/REPLACE_FORM_ID" method="POST" novalidate>
+
+                <!-- Honeypot -->
+                <div class="form-honeypot" aria-hidden="true">
+                  <label for="bot-field">Leave this field empty</label>
+                  <input type="text" name="bot-field" id="bot-field" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div style="display:grid;grid-template-columns:1fr;gap:0">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)">
+                    <div class="form-group">
+                      <label class="form-label" for="first-name">First name <span aria-hidden="true" style="color:var(--c-accent)">*</span></label>
+                      <input class="form-input" type="text" id="first-name" name="first_name" required autocomplete="given-name" placeholder="Max">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label" for="last-name">Last name <span aria-hidden="true" style="color:var(--c-accent)">*</span></label>
+                      <input class="form-input" type="text" id="last-name" name="last_name" required autocomplete="family-name" placeholder="Mustermann">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email address <span aria-hidden="true" style="color:var(--c-accent)">*</span></label>
+                  <input class="form-input" type="email" id="email" name="email" required autocomplete="email" placeholder="max@mustermann.de">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="company">Business / Company name</label>
+                  <input class="form-input" type="text" id="company" name="company" autocomplete="organization" placeholder="Muster GmbH">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="service">What do you need?</label>
+                  <select class="form-input" id="service" name="service">
+                    <option value="">Select a service…</option>
+                    <option value="new-website">New website from scratch</option>
+                    <option value="redesign">Website redesign</option>
+                    <option value="seo">SEO optimisation</option>
+                    <option value="brand-identity">Brand identity / logo</option>
+                    <option value="maintenance">Maintenance package</option>
+                    <option value="other">Something else</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="budget">Approximate budget</label>
+                  <select class="form-input" id="budget" name="budget">
+                    <option value="">Select a range…</option>
+                    <option value="under-1500">Under €1,500</option>
+                    <option value="1500-3000">€1,500 – €3,000</option>
+                    <option value="3000-6000">€3,000 – €6,000</option>
+                    <option value="6000-plus">€6,000+</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="message">Tell us more <span aria-hidden="true" style="color:var(--c-accent)">*</span></label>
+                  <textarea class="form-input" id="message" name="message" required placeholder="Describe your business, what you're looking for, and any relevant details — existing website, target audience, timeline, etc." rows="5"></textarea>
+                </div>
+
+                <div class="form-checkbox-row">
+                  <input type="checkbox" id="privacy-consent" name="privacy_consent" required>
+                  <label for="privacy-consent">I have read and agree to the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a>. I consent to my data being processed to handle my enquiry. <span aria-hidden="true" style="color:var(--c-accent)">*</span></label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn--lg" style="width:100%">
+                  Send Message
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+
+                <div id="form-status" class="form-status" role="alert" aria-live="polite"></div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap footer__inner">
+      <div>
+        <a href="./index.html" class="footer__logo">N&K Webdesign</a>
+        <p class="footer__tagline">Professional web design and development for ambitious businesses in Munich and beyond.</p>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Pages</h3>
+        <ul role="list">
+          <li><a href="./index.html"   class="footer__link">Home</a></li>
+          <li><a href="./about.html"   class="footer__link">About Us</a></li>
+          <li><a href="./clients.html" class="footer__link">Our Clients</a></li>
+          <li><a href="./contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer__col-title">Legal</h3>
+        <ul role="list">
+          <li><a href="./impressum.html"      class="footer__link">Impressum</a></li>
+          <li><a href="./privacy-policy.html" class="footer__link">Datenschutz</a></li>
+          <li><a href="./cookies.html"        class="footer__link">Cookie Policy</a></li>
+          <li><a href="./terms.html"          class="footer__link">Terms &amp; Conditions</a></li>
+          <li><button class="footer__link" id="cookie-settings-btn">Cookie Settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="wrap footer__bottom-inner">
+        <p>© <span id="footer-year"></span> Ney &amp; Kappes Innovations GbR · Munich, Germany</p>
+        <p>Designed &amp; built by <strong>N&amp;K Webdesign</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./theme.js"             defer></script>
+  <script src="./main.js"              defer></script>
+  <script src="./scroll-animations.js" defer></script>
+  <script src="./cookie-consent.js"    defer></script>
+</body>
+</html>
